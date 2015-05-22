@@ -1,0 +1,17 @@
+.sidebar-section
+	.title 
+		i.fa.fa-caret-down 
+		| Chat	
+	.content.message-content
+		.message-area 
+			.msg(ng-repeat="message in chat.messages", ng-class="{borderBottom : $first}", class="borderTopBottom")
+				.msg-title
+					span.user {{message.user}}
+					.msg-time {{message.time}}
+				.msg-text {{message.msg}}
+		.user-input
+			textarea(
+				ng-model='chat.message', 
+				ng-enter="sendChatMessage()", 
+				placeholder="Type your message here..."
+			)

@@ -1,0 +1,12 @@
+doctype
+html(ng-app='app') 
+	head 
+		link(rel="stylesheet", href="styles/importer.css")
+		link(rel="stylesheet", href="bower_components/fontawesome/css/font-awesome.min.css")
+	body(ng-controller='main')
+		block content
+	script(src="bower_components/jquery/dist/jquery.min.js")
+	script(src="bower_components/angularjs/angular.min.js")
+	script(src="bower_components/moment/moment.js")
+	- for(var i in jsFiles)
+		script(src="js/#{jsFiles[i]}")

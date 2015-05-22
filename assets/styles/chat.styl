@@ -1,0 +1,59 @@
+.message-content
+    position absolute
+    top 33px
+    bottom 0
+    display flex
+    right 0
+    flex-flow column wrap
+    left 0
+    .message-area 
+        overflow-y auto
+        position absolute
+        top 0
+        bottom 50px
+        right 0
+        left 0
+    .user-input 
+        height 50px
+        position absolute
+        border-top 1px solid #333
+        box-shadow 0 -1px 0 0 #000
+        bottom 0
+        right 0
+        left 0
+        textarea 
+            width 100%
+            height 100%
+            position absolute
+            top 0
+            background none
+            border none
+            resize none
+            outline none
+            font-size 18px
+    .msg 
+        word-wrap wrap-word
+        padding 5px
+        border-left 1px solid rgb(32, 163, 113)
+        // border-top 1px solid #444
+        // border-bottom 1px solid #000
+        position relative
+        .msg-time 
+            position absolute
+            right 10px
+            font-size 12px
+            color #aaa
+            top 5px
+            
+        .msg-text 
+            color #999
+            padding-top 5px
+.borderTop 
+    border-top 1px solid #444
+    border-bottom none !important
+.borderBottom
+    border-top none !important
+    border-bottom 1px solid #000
+.borderTopBottom
+    border-top 1px solid #444
+    border-bottom 1px solid #000
