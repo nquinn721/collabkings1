@@ -1,11 +1,45 @@
-include templates/layout
+doctype
+html
+	head
+		title CollabKings
+		link(rel="stylesheet", href="bower_components/bootstrap/dist/css/bootstrap.css")
+		style.
+			.container {
+			    display: flex;
+			    height: 100%;
+			}
 
-block content
-	.container 
-		.header
-			include templates/header
-		.content
-			include templates/sidebar
-			.editor-area
+			body, html {
+			    height: 100%;
+			}
 
+			.login {
+			    width: 50%;
+			    margin: auto;
+			    background-color: #3EA0D3;
+			    padding: 30px;
+			    color: white;
+			}
 
+			body {
+			    background-color: #222;
+			}
+			[type=submit]{
+				position: absolute;
+				left: -9999px;
+			}
+	body
+		.container
+			.login
+				form(action="/login", method="POST")
+					- if(error)
+						.alert.alert-danger=error
+					h3 Login
+					br
+					.form-group
+						label(for="username") Username
+						input.form-control#username(name='username', placeholder="Enter a username")
+					.form-group
+						label(for="password") Password
+						input.form-control#password(name='password', type='password', placeholder="Enter a password")
+					input(type='submit')

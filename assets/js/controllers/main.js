@@ -1,5 +1,6 @@
-app.controller('main', ['$scope', '$http', function ($scope, $http) {
-	$http.get('/user/1').success(function (user) {
+app.controller('main', function ($scope, $http) {
+	$http.get('/getuser').success(function (user) {
+		console.log(user);
 		$scope.user = user;
 	});
-}]);
+}); 

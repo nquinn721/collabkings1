@@ -8,6 +8,11 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.globals.html
  */
+
+// Get list of files in javascript directory
+var wrench = require('wrench'),
+    files = wrench.readdirSyncRecursive(process.cwd() + '/assets/js/').map(function (v) {if(v.match('.js')) return v.replace('\\\\' , '\\'); }).filter(function(v){return v !== undefined;});
+
 module.exports.globals = {
 
   /****************************************************************************
@@ -19,6 +24,7 @@ module.exports.globals = {
   ****************************************************************************/
 
 	_: true,
+    jsFiles : files,
 
   /****************************************************************************
   *                                                                           *

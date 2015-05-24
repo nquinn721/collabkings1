@@ -7,16 +7,9 @@
 
 module.exports = {
 	getUser : function (req, res) {
-		User.findOne(req.param('id'))
-			.then(function (model) {
-				res.send(model.username);
-			})
-			.fail(function () {
-				res.send(404);
-			});
-	},
-	login : function  () {
-		
+		if(req.session.user)
+			res.send(req.session.user);
+		else res.send(false);
 	}
 };
 

@@ -32,13 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/' : 'Index.index',
-  // '/': {
-  //   view: 'index'
-  // },
+  // '/' : 'Index.index',
+  '/': {
+    view: 'index'
+  },
 
-  'GET /user/:id' : 'User.getUser',
+  'GET /getuser' : 'User.getUser',
   'GET /chatmessage' : 'Chat.message',
+  'POST /login' : 'Authenticate.login'
 
   /***************************************************************************
   *                                                                          *
