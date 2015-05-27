@@ -1,5 +1,11 @@
 .header   
     position relative
+    > div
+        line-height 50px
+    .logo
+        float left
+        padding-left 25px
+        color #999
     .menu 
         position absolute
         bottom 0
@@ -28,12 +34,23 @@
         height 48px
         border-left 1px solid #333
         width 15%
-        line-height 50px
         z-index 1
         text-align center
         box-shadow 0px -1px 0 1px black
         i 
             width 30px
         .dropdown
-            display none
+            background-color #333
+            position absolute
+            width 200px
+            right 20px
+            border-bottom 2px dashed #2D1B1B
+            .item 
+                text-align left
+                &:hover 
+                    background #222
+                i 
+                    width 60px
+                    text-align center
+                
     

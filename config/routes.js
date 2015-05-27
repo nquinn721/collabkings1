@@ -34,11 +34,13 @@ module.exports.routes = {
 
   '/' : 'Index.index',
   // '/': {
-  //   view: 'index'
+  //   view: 'index',
   // },
-
-  'GET /user/:id' : 'User.getUser',
+  'GET /getuser' : 'User.getUser',
   'GET /chatmessage' : 'Chat.message',
+  'GET /editor' : 'Index.editor',
+  'POST /login' : 'Authenticate.login',
+  'GET /logout' : 'Authenticate.logout'
 
   /***************************************************************************
   *                                                                          *
