@@ -8,8 +8,6 @@
 module.exports = {
 	message : function (req, res) {
 		var io = sails.io;
-		console.log(req.allParams());
-		
 		io.emit('chatmessage', req.allParams());
 		
 	}

@@ -1,9 +1,14 @@
 .menu
-	.menu-item File
+	.menu-item(show-menu="fileMenu") File
+		.dropdown(ng-show="fileMenuShow")
+			| sup
 	.menu-item Edit
 .logo CollabKings
 .user-area
-	.user 
+	.user.pointer(show-menu="menuDropdown")
 		i.fa.fa-user
-		| #{user.username}
-	.dropdown
+		| #{user ? user.username : ''}
+		.dropdown(ng-show="menuDropdownShow")
+			.item.pointer(ng-click="logout()")
+				i.fa.fa-reply
+				| logout

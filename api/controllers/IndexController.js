@@ -7,5 +7,10 @@
  
 
 module.exports = {
-	
+	editor : function (req, res) {
+		res.view('editor');
+	},
+	index : function (req, res) {
+		res.view('index');
+	}
 };
