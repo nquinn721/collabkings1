@@ -1,4 +1,4 @@
-CK.directive('chat', function ($http) {
+CK.directive('chat', function () {
 	return {   
 		restrict : 'E',
 		templateUrl : 'templates/chat.html',

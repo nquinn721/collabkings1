@@ -3,10 +3,7 @@ CK.controller('main', function ($scope, $http) {
 		$scope.user = user;
 	});
 
-	$scope.showUserMenu = function () {
-		$scope.isPopupVisible = !$scope.isPopupVisible;
-	}
-
+	
 	$scope.logout = function () {
 		$http.get('/logout');
 		window.location.pathname = '/';

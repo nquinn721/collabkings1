@@ -1,0 +1,17 @@
+.sidebar-section
+	.title
+		i.fa.fa-caret-down 
+		| Projects 
+	.content.file-html
+		div(
+			ng-repeat="file in files | orderBy:fileParent", 
+			ng-attr-file="{{isFile() === true}}",
+			parents="{{file.parents.length}}"
+			path="{{file.path}}",
+			ng-show="{{file.parent ? 'fileopen' + file.parent : true}}",
+			parent="{{file.parent}}",
+			ng-click="isFile() === true ? loadFile() : openFolder()",
+			name="{{file.name}}",
+			hide-by-parents="{{file.parents.length ? file.parents : false}}",
+			context-menu
+		)

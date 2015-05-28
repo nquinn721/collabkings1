@@ -40,7 +40,8 @@ module.exports.routes = {
   'GET /chatmessage' : 'Chat.message',
   'GET /editor' : 'Index.editor',
   'POST /login' : 'Authenticate.login',
-  'GET /logout' : 'Authenticate.logout'
+  'GET /logout' : 'Authenticate.logout',
+  'GET /filelist' : 'Files.getFileList'
 
   /***************************************************************************
   *                                                                          *

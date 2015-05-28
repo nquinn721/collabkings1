@@ -1,0 +1,29 @@
+.file-html 
+	padding 5px 0
+	overflow hidden
+	position absolute
+	width 100%
+	bottom 0
+	top 30px
+	left 0
+	right 0
+	> div
+		padding-left 10px
+		&:hover
+			background #333
+
+	.file, .folder
+		cursor pointer
+	.file.selected
+		background black
+	i
+		font-size 13px
+		width 15px
+		&.wide
+			width 20px
+		&.fa-file
+			color rgb(249, 62, 62)
+			font-size 11px
+		&.fa-folder,
+		&.fa-folder-open
+			color rgb(14, 205, 229)

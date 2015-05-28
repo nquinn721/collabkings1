@@ -5,29 +5,38 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var w = require('wrench'),
-	fs = require('fs');
+	fs = require('fs'); 
 
 module.exports = {
-	createProject : function (req) {
-		console.log(cwd());
+	projects : process.cwd() + '/projects',
+	project : '', // Current session user project
+	createProject : function (req, res) {
+		this.setProject(req);
+		if(!fs.existsSync(this.project))
+			fs.mkdir(project);
 	},
-	getFileList : function  () {
-		
+	getFileList : function  (req, res) {
+		this.setProject(req);
+		var files = w.readdirSyncRecursive(this.project);
+		res.send(files);
 	},
 	action : function (type, args) {
 		this[type](args);
 	},
-	save : function (args) {
+	save : function (req, res) {
 		
 	},
-	load : function (args) {
+	load : function (req, res) {
 		
 	},
-	deletefile : function (args) {
+	deletefile : function (req, res) {
 		
 	},
-	createfile : function (args) {
+	createfile : function (req, res) {
 		
+	},
+	setProject : function (req) {
+		this.project = this.projects + '/' + req.session.user.username;
 	}
 };
 
