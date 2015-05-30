@@ -1,11 +1,11 @@
-.context-menu.none.clickandhide(hide-by-doc-click)
+.context-menu.none(hide-by-doc-click)
 	.context-menu-item(move-file) 
 		i.fa.fa-arrows
 		| Move
 	.context-menu-item(rename-file)
 		i.fa.fa-pencil
 		| Rename
-	.context-menu-item(create-file)
+	.context-menu-item.create-file-menu-item(ng-click="menuItemClick('createFile')", ng-class="{clicked : showingCreateFile}")
 		i.fa.fa-file-text
 		| Create File
 	.divider

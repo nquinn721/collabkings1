@@ -13,5 +13,6 @@
 			ng-click="isFile() === true ? loadFile() : openFolder()",
 			name="{{file.name}}",
 			hide-by-parents="{{file.parents.length ? file.parents : false}}",
+			class="file-item",
 			context-menu
 		)
