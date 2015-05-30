@@ -11,16 +11,19 @@ CK.directive('file', function () {
            	$scope.contentUrl = 'templates/' + url + '.html';
            	if(p !== '0')
 				$element.css('padding-left', '+=' + left);
+			else if(url === 'file')
+				$element.css('padding-left', '+=' + 15);
 
 
-			$scope.openFolder = function () {
+			$scope.openFolder = function (e) {
+				console.log('file');
 				var p = this.file.path.split('/').pop();
 				$scope.$parent['fileopen' + p] = !$scope.$parent['fileopen' + p];
 				$scope['filename' + this.file.name] = !$scope['filename' + this.file.name];
 			}
 
 			$scope.loadFile = function () {
-				$(this).addClass('selected');
+
 			}
 		},
 		template : '<div ng-include="contentUrl" include-replace></div>'

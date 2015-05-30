@@ -7,6 +7,10 @@
 	top 30px
 	left 0
 	right 0
+	user-select none
+	-webkit-user-select none
+	-moz-user-select none
+	-ms-user-select none
 	> div
 		padding-left 10px
 		&:hover
@@ -14,16 +18,16 @@
 
 	.file, .folder
 		cursor pointer
+		>i
+			font-size 13px
+			width 15px
+			&.wide
+				width 20px
+			&.fa-file
+				color #34A13A
+				font-size 11px
+			&.fa-folder,
+			&.fa-folder-open
+				color #37818B
 	.file.selected
 		background black
-	i
-		font-size 13px
-		width 15px
-		&.wide
-			width 20px
-		&.fa-file
-			color rgb(249, 62, 62)
-			font-size 11px
-		&.fa-folder,
-		&.fa-folder-open
-			color rgb(14, 205, 229)

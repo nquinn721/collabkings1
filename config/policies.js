@@ -29,7 +29,6 @@ module.exports.policies = {
   '*': 'flash',
   IndexController : {
     editor : 'sessionAuth',
-    
   }
 
   /***************************************************************************

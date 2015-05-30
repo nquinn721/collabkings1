@@ -8,4 +8,7 @@ CK.controller('main', function ($scope, $http) {
 		$http.get('/logout');
 		window.location.pathname = '/';
 	}
+
+
+
 }); 

@@ -21,7 +21,7 @@ module.exports = {
 			req.session.user = user;
 			req.session.authenticated = true;
 
-			sails.controllers.files.createProject(req);
+			sails.controllers.project.createProject(req);
 
 			res.redirect('editor');
 

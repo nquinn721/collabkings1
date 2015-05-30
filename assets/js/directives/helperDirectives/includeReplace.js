@@ -4,7 +4,6 @@ CK.directive('includeReplace', function () {
         restrict: 'A',
         link: function (scope, el, attrs) {
             el.replaceWith(el.children());
-
         }
     };
 });

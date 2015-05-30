@@ -10,6 +10,9 @@ module.exports = {
 		if(req.session.user)
 			res.send(req.session.user);
 		else res.send(false);
+	},
+	status : function (req, res) {
+		
 	}
 };
 

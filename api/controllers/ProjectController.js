@@ -20,19 +20,19 @@ module.exports = {
 		var files = w.readdirSyncRecursive(this.project);
 		res.send(files);
 	},
-	action : function (type, args) {
-		this[type](args);
+	savefile : function (req, res) {
+		console.log('save file');
 	},
-	save : function (req, res) {
+	loadfile : function (req, res) {
 		
-	},
-	load : function (req, res) {
-		
+		console.log('load file');
 	},
 	deletefile : function (req, res) {
+		console.log('delete file');
 		
 	},
 	createfile : function (req, res) {
+		console.log('create file');
 		
 	},
 	setProject : function (req) {

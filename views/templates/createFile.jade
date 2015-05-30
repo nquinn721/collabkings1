@@ -1,0 +1,7 @@
+.create-file-input.none(hide-by-doc-click)
+	| Create File
+	input(
+		placeholder="Type file name here...", 
+		ng-enter="createFile(this)",
+		model="createFileName"
+	)
