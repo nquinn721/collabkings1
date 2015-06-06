@@ -10,7 +10,6 @@ var w = require('wrench'),
 module.exports = {
 	projects : process.cwd() + '/projects',
 	project : '', // Current session user project
-	dontAllow : ['.DS_Store'],
 	createProject : function (req, res) {
 		this.setProject(req);
 		if(!fs.existsSync(this.project))
@@ -19,9 +18,6 @@ module.exports = {
 	getFileList : function  (req, res) {
 		this.setProject(req);
 		var files = w.readdirSyncRecursive(this.project);
-		// for(var i = 0; i < files.length; i++)
-		// 	if(_.contains(this.dontAllow, files[i]))
-		// 		files.splice(i, 1);
 		res.send(files);
 	},
 
