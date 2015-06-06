@@ -10,14 +10,14 @@
 	user-select none
 	-webkit-user-select none
 	-moz-user-select none
-	-ms-user-select none
-	> div
-		padding-left 10px
-		&:hover
-			background #333
+	-ms-user-select none 
 
 	.file, .folder
 		cursor pointer
+		
+		&:hover
+			background #333
+	
 		>i
 			font-size 13px
 			width 15px
@@ -29,5 +29,12 @@
 			&.fa-folder,
 			&.fa-folder-open
 				color #37818B
+	.file
+		> i
+			display inline-block
+			margin-right 5px
+
 	.file.selected
 		background black
+	.file-container
+		padding-left 15px

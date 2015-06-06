@@ -44,10 +44,10 @@ module.exports.routes = {
 
   // Project Management Routes
   'GET /filelist' : 'Project.getFileList',
-  'GET /createfile' : 'Project.createfile',
-  'POST /deletefile' : 'Project.deletefile',
-  'POST /savefile' : 'Project.savefile',
-  'POST /loadfile' : 'Project.loadfile',
+  'GET /createfile' : 'Project.action',
+  'GET /deletefile' : 'Project.action',
+  'GET /savefile' : 'Project.action',
+  'GET /loadfile' : 'Project.action',
 
   // User Informatin Routes
   'GET /status' : 'User.status'

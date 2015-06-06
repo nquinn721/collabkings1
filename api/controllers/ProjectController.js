@@ -10,6 +10,7 @@ var w = require('wrench'),
 module.exports = {
 	projects : process.cwd() + '/projects',
 	project : '', // Current session user project
+	dontAllow : ['.DS_Store'],
 	createProject : function (req, res) {
 		this.setProject(req);
 		if(!fs.existsSync(this.project))
@@ -18,21 +19,36 @@ module.exports = {
 	getFileList : function  (req, res) {
 		this.setProject(req);
 		var files = w.readdirSyncRecursive(this.project);
+		// for(var i = 0; i < files.length; i++)
+		// 	if(_.contains(this.dontAllow, files[i]))
+		// 		files.splice(i, 1);
 		res.send(files);
 	},
-	savefile : function (req, res) {
+
+	action : function (req, res) {
+		var action = req.route.path.replace('/', ''),
+			url = req.param('url');
+
+		this[action](url);
+	},
+	savefile : function (data) {
 		console.log('save file');
 	},
-	loadfile : function (req, res) {
+	loadfile : function (data) {
 		
 		console.log('load file');
 	},
-	deletefile : function (req, res) {
+	deletefile : function (data) {
 		console.log('delete file');
 		
 	},
-	createfile : function (req, res) {
-		console.log('create file');
+	createfile : function (url) {
+		fs.writeFile(this.project + url, '', function (err) {
+			if(err)
+				console.log(err);
+			else
+				sails.io.emit('newfile', url);
+		});
 		
 	},
 	setProject : function (req) {

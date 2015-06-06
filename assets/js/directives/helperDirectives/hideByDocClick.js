@@ -13,13 +13,14 @@ CK.directive('hideByDocClick', function ($rootScope, $document) {
 		        if (sameElement)
 		          return;
 
-		      	if($attrs.hideByDocClick)
+		      	if($attrs.hideByDocClick){
 		      		if(target.hasClass($attrs.hideByDocClick) || target.parents().hasClass($attrs.hideByDocClick))return false;
-		      	else
+		      	} else{
 		      		if($element.attr('ng-show'))
 		      			$rootScope[$element.attr('ng-show')] = false;
 		      		else
 						$element.addClass('none');
+		      	}
 			});
 		}
 	}
