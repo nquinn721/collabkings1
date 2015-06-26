@@ -3,4 +3,4 @@
 		i.fa.fa-caret-down 
 		| Projects 
 	.content.file-html
-		div(ng-repeat="file in files | orderBy:['-type']", file)
+		div(ng-repeat="file in files | orderBy:['-name','-type']", file)

@@ -5,7 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var w = require('wrench'),
-	fs = require('fs'); 
+	fs = require('fs'),
+	_ = require('underscore'); 
 
 module.exports = {
 	projects : process.cwd() + '/projects',
@@ -18,6 +19,9 @@ module.exports = {
 	getFileList : function  (req, res) {
 		this.setProject(req);
 		var files = w.readdirSyncRecursive(this.project);
+		for(var i = 0; i < files.length; i++)
+			if(files[i].match(/\.DS_Store/))
+				files.splice(i, 1);
 		res.send(files);
 	},
 

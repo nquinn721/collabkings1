@@ -22,7 +22,6 @@ module.exports = {
 			req.session.authenticated = true;
 
 			sails.controllers.project.createProject(req);
-
 			res.redirect('editor');
 
 		}).fail(function (err) {

@@ -35,6 +35,7 @@ module.exports.routes = {
   // Login/Logout/Authenticate Routes
   '/' : 'Index.index',
   'GET /getuser' : 'User.getUser',
+  'GET /allusers' : 'User.getAllUsers',
   'GET /chatmessage' : 'Chat.message',
   'GET /editor' : 'Index.editor',
   'POST /login' : 'Authenticate.login',
@@ -50,7 +51,11 @@ module.exports.routes = {
   'GET /loadfile' : 'Project.action',
 
   // User Informatin Routes
-  'GET /status' : 'User.status'
+  'GET /status' : 'User.status',
+  'GET /joinroom/:room?' : 'User.joinRoom',
+
+  // Editor Routes
+  'GET /editorupdate' : 'Editor.update'
 
   /***************************************************************************
   *                                                                          *
