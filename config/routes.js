@@ -55,7 +55,8 @@ module.exports.routes = {
   'GET /joinroom/:room?' : 'User.joinRoom',
 
   // Editor Routes
-  'GET /editorupdate' : 'Editor.update'
+  'GET /editorupdate' : 'Editor.updateEditor',
+  'GET /cursorupdate' : 'Editor.updateCursor'
 
   /***************************************************************************
   *                                                                          *

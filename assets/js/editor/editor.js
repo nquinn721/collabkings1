@@ -8,27 +8,47 @@ CK.directive('editor', function ($rootScope, $timeout) {
 					mode: "javascript",
 					styleActiveLine: true,
 					lineNumbers: true,
-					lineWrapping: true,
 					theme : 'monokai',
-					indentUnit : 4
+					indentUnit : 4,
+					lineWrapping : false
 				}),
-				fromSocket;
+				fromSocket,
+				cursorFromSocket = true,
+				cursorPrevLeft;
+
+			// Create other person cursor
+			$('.editor-area').append($('<div>', {class : 'other-person-cursor'}));
 
 			editor.on('change', function (e, data) {
 				if(!fromSocket)
-					io.socket.get('/editorupdate', {
-						data : data
-					});
-				else fromSocket = false;
+					io.socket.get('/editorupdate', data);
+				else{
+					fromSocket = false;	
+					cursorFromSocket = false;
+				} 
+			});
+			editor.on('cursorActivity', function () {
+				if(cursorFromSocket){
+					var pos = editor.getCursor(),
+						cursor = $('.CodeMirror-cursor'),
+						left = parseInt(cursor.css('left')),
+						top = parseInt(cursor.css('top'));
+						console.log(left);
+						io.socket.get('/cursorupdate', {left : left + 31, top : (pos.line * 15) + 3});					
+				}
 			});
 
 			io.socket.on('editorupdate', function (data) {
-				var data = data.data;
 				fromSocket = true;
+				console.log('editor update');
 				editor.replaceRange(data.text, data.from, data.to);
+			})
+			io.socket.on('cursorupdate', function (data) {
+				cursorFromSocket = true;
+				$('.other-person-cursor').css(data).show();
 			});
 		}
 	}
-})
+});
 
 

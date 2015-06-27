@@ -6,8 +6,11 @@
  */
 
 module.exports = {
-	update : function (req, res) {
+	updateEditor : function (req, res) {
 		req.socket.broadcast.to('roomName').emit('editorupdate', req.allParams());
+	},
+	updateCursor : function (req, res) {
+		req.socket.broadcast.to('roomName').emit('cursorupdate', req.allParams());
 	}
 };
 

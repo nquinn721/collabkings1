@@ -14,7 +14,7 @@ module.exports = {
 	createProject : function (req, res) {
 		this.setProject(req);
 		if(!fs.existsSync(this.project))
-			fs.mkdir(project);
+			fs.mkdir(this.project);
 	},
 	getFileList : function  (req, res) {
 		this.setProject(req);
@@ -29,21 +29,19 @@ module.exports = {
 		var action = req.route.path.replace('/', ''),
 			url = req.param('url');
 
-		this[action](url);
+		this[action](this.project + url);
 	},
 	savefile : function (data) {
-		console.log('save file');
+		// fs.
 	},
 	loadfile : function (data) {
 		
-		console.log('load file');
 	},
-	deletefile : function (data) {
-		console.log('delete file');
-		
+	deletefile : function (url) {
+		fs.unlink(url);
 	},
 	createfile : function (url) {
-		fs.writeFile(this.project + url, '', function (err) {
+		fs.writeFile(url, '', function (err) {
 			if(err)
 				console.log(err);
 			else
