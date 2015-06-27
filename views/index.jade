@@ -24,10 +24,7 @@ html
 			body {
 				background-color: #222;
 			}
-			[type=submit]{
-				position: absolute;
-				left: -9999px;
-			}
+			
 	body
 		.container
 			.login
@@ -42,4 +39,4 @@ html
 						label(for="password") Password
 						input.form-control#password(name='password', type='password', placeholder="Enter a password")
 					input(type='hidden', name='_csrf', value='#{_csrf}')
-					input(type='submit')
+					input(type='submit', value="Login", class="btn btn-info")

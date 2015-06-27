@@ -32,15 +32,31 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  // Login/Logout/Authenticate Routes
   '/' : 'Index.index',
-  // '/': {
-  //   view: 'index',
-  // },
   'GET /getuser' : 'User.getUser',
+  'GET /allusers' : 'User.getAllUsers',
   'GET /chatmessage' : 'Chat.message',
   'GET /editor' : 'Index.editor',
   'POST /login' : 'Authenticate.login',
-  'GET /logout' : 'Authenticate.logout'
+  'GET /logout' : 'Authenticate.logout',
+
+
+
+  // Project Management Routes
+  'GET /filelist' : 'Project.getFileList',
+  'GET /createfile' : 'Project.action',
+  'GET /deletefile' : 'Project.action',
+  'GET /savefile' : 'Project.action',
+  'GET /loadfile' : 'Project.action',
+
+  // User Informatin Routes
+  'GET /status' : 'User.status',
+  'GET /joinroom/:room?' : 'User.joinRoom',
+
+  // Editor Routes
+  'GET /editorupdate' : 'Editor.updateEditor',
+  'GET /cursorupdate' : 'Editor.updateCursor'
 
   /***************************************************************************
   *                                                                          *

@@ -1,0 +1,23 @@
+.file-container
+		
+	.icon(
+		ng-show="{{file.parent ? 'fileopen' + file.parent : true}}",
+		parents="{{file.parents.length}}"
+		path="{{file.path}}",
+		parent="{{file.parent}}",
+		ng-click="isFile() === true ? loadFile() : openFolder()",
+		name="{{file.name}}",
+		class="file-item",
+		hide-by-parents="{{file.parents.length ? file.parents : []}}",
+		context-menu
+	)
+		.file(ng-if="file.type === 'file'")
+			i.fa.fa-file
+			| {{file.name}}
+		.folder(ng-if="file.type === 'folder'")
+			i.fa.fa-caret-right(ng-hide="{{'filename' + file.name}}")
+			i.fa.fa-caret-down(ng-hide="!{{'filename' + file.name}}")
+			i.fa.fa-folder.wide(ng-hide="{{'filename' + file.name}}")
+			i.fa.fa-folder-open.wide(ng-hide="!{{'filename' + file.name}}")
+			span.folder-name {{file.name}}
+	div(ng-repeat="file in file.children | orderBy:['-type']", file)
