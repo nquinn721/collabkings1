@@ -10,6 +10,7 @@ CK.directive('projects', function ($http) {
 			$http.get('filelist').success(function(files){
 				for(var i = 0; i < files.length; i++)
 					addFile(files[i]);
+				
 			});
 			
 
@@ -35,7 +36,7 @@ CK.directive('projects', function ($http) {
 
 			function addFile (file) {
 				var f = file,
-					list = f.split('/'),
+					list = f.split(/\/|\\/),
 					obj = {
 						type : f.indexOf('\.') > -1 ? 'file' : 'folder',
 						name : list.slice(-1)[0],
@@ -44,6 +45,7 @@ CK.directive('projects', function ($http) {
 						parent : list.slice(-2, -1)[0],
 						children : []
 					};
+
 				if(obj.parents.length > 0){
 					getChild($scope.files, f.split('/').slice(0, -1).join('/'), obj);
 				}else{

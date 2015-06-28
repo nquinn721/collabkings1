@@ -15,9 +15,11 @@ CK.directive('editor', function ($rootScope, $timeout) {
 				fromSocket,
 				cursorFromSocket = true,
 				cursorPrevLeft;
-
+			$('.CodeMirror.cm-s-monokai').css({
+				maxHeight : $(window).height()
+			})
 			// Create other person cursor
-			$('.editor-area').append($('<div>', {class : 'other-person-cursor'}));
+			$('.CodeMirror-sizer').append($('<div>', {class : 'other-person-cursor'}));
 
 			editor.on('change', function (e, data) {
 				if(!fromSocket)
@@ -29,12 +31,15 @@ CK.directive('editor', function ($rootScope, $timeout) {
 			});
 			editor.on('cursorActivity', function () {
 				if(cursorFromSocket){
+					setTimeout(function () {
+						
 					var pos = editor.getCursor(),
 						cursor = $('.CodeMirror-cursor'),
 						left = parseInt(cursor.css('left')),
 						top = parseInt(cursor.css('top'));
 						console.log(left);
-						io.socket.get('/cursorupdate', {left : left + 31, top : (pos.line * 15) + 3});					
+						io.socket.get('/cursorupdate', {left : left, top : (pos.line * 15.5555572509766) + 3});					
+					}, 10)
 				}
 			});
 
