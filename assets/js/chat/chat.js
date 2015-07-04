@@ -12,7 +12,6 @@ CK.directive('chat', function () {
 
 
 			io.socket.on('chatmessage', function (obj) {
-				console.log(obj.user, $scope.user.username);
 				// Set user to You for current user
 				if(obj.user === $scope.user.username)obj.user = 'You';
 
@@ -24,6 +23,9 @@ CK.directive('chat', function () {
 			
 		
 			$scope.sendChatMessage = function () {
+				if($.trim($scope.chat.message) === '')return;
+
+				console.log($scope.chat.message);				
 				io.socket.get('/chatmessage', {
 					user : $scope.user.username, 
 					msg : $scope.chat.message

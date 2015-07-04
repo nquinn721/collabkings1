@@ -13,11 +13,8 @@ CK.directive('editor', function ($rootScope, $timeout) {
 					lineWrapping : false
 				}),
 				fromSocket,
-				cursorFromSocket = true,
-				cursorPrevLeft;
-			$('.CodeMirror.cm-s-monokai').css({
-				maxHeight : $(window).height()
-			})
+				cursorFromSocket = true;
+			
 			// Create other person cursor
 			$('.CodeMirror-sizer').append($('<div>', {class : 'other-person-cursor'}));
 
@@ -37,17 +34,15 @@ CK.directive('editor', function ($rootScope, $timeout) {
 						cursor = $('.CodeMirror-cursor'),
 						left = parseInt(cursor.css('left')),
 						top = parseInt(cursor.css('top'));
-						console.log(left);
-						io.socket.get('/cursorupdate', {left : left, top : (pos.line * 15.5555572509766) + 3});					
+						io.socket.get('/cursorupdate', {left : left, top : (pos.line * 15) + 3});					
 					}, 10)
 				}
 			});
 
 			io.socket.on('editorupdate', function (data) {
 				fromSocket = true;
-				console.log('editor update');
 				editor.replaceRange(data.text, data.from, data.to);
-			})
+			});
 			io.socket.on('cursorupdate', function (data) {
 				cursorFromSocket = true;
 				$('.other-person-cursor').css(data).show();
