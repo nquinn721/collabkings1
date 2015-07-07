@@ -1,0 +1,12 @@
+.modal.fade.modal-menu(tabindex="-1", role="dialog")
+	.modal-content
+		.modal-header
+			button.close(type='button', data-dismiss='modal', aria-label='Close')
+				span ×
+			h4.modal-title {{title}}
+		.modal-body
+			p {{body}}
+		.modal-footer
+			button.btn.btn-default(type='button', data-dismiss='modal', ng-show="buttonDefault", ng-click="update()") {{buttonDefaultText}}
+			button.btn.btn-primary(type='button', ng-show="buttonPrimary") {{buttonPrimaryText}}
+			button.btn.btn-danger(type='button', ng-show="buttonDanger") {{buttonDangerText}}

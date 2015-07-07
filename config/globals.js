@@ -11,8 +11,7 @@
 
 // Get list of files in javascript directory
 var wrench = require('wrench'),
-    files = wrench.readdirSyncRecursive(process.cwd() + '/assets/js/').map(function (v) {if(v.match('.js')) return v.replace('\\\\' , '\\'); }).filter(function(v){return v !== undefined;});
-
+    files = wrench.readdirSyncRecursive(process.cwd() + '/assets/js/').map(function (v) {if(v.match('.js')) return v.replace('\\\\' , '\\'); }).filter(function(v){return v !== undefined && (v && !v.match('dependencies'));});
 module.exports.globals = {
 
   /****************************************************************************
