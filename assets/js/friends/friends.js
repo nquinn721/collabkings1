@@ -4,7 +4,9 @@ CK.directive('friends', function () {
 		templateUrl : 'templates/friends.html',
 		replace : true,
 		link : function ($scope, $element, $attrs) {
-			
+			$scope.removeFriend = function () {
+				console.log(this);
+			}
 		}
 	}
 })

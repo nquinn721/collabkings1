@@ -2,5 +2,9 @@
 	.title 
 		i.fa.fa-caret-down 
 		| Friends
-		i.fa.fa-plus.right.pointer(data-toggle="tooltip", tooltip="Add Friend", modal)
+		i.fa.fa-plus.right.pointer(data-toggle="tooltip", tooltip="Add Friend", ng-model="friend", modal='{"cb" : "addFriend", "url" : "addfriend", "model" : "friend" }')
 	.content
+		table
+			tr(ng-repeat="friend in user.friends")
+				td {{friend}}
+				td: i.fa.fa-trash.pointer(ng-click="removeFriend")

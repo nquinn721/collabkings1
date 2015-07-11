@@ -1,12 +1,15 @@
 .modal.fade.modal-menu(tabindex="-1", role="dialog")
-	.modal-content
-		.modal-header
-			button.close(type='button', data-dismiss='modal', aria-label='Close')
-				span ×
-			h4.modal-title {{title}}
-		.modal-body
-			p {{body}}
-		.modal-footer
-			button.btn.btn-default(type='button', data-dismiss='modal', ng-show="buttonDefault", ng-click="update()") {{buttonDefaultText}}
-			button.btn.btn-primary(type='button', ng-show="buttonPrimary") {{buttonPrimaryText}}
-			button.btn.btn-danger(type='button', ng-show="buttonDanger") {{buttonDangerText}}
+	.modal-dialog.modal-sm 
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span ×
+				h4.modal-title {{modalTitle}}
+			.modal-body
+				input.form-control(ng-if="!modalBody", ng-model="modal.modalInput", placeholder="Type friends name")
+				p {{modalBody}}
+			.modal-footer
+				span.alert.alert-danger(ng-if="modal.modalError") {{modal.modalError}}
+				button.btn.btn-default(type='button', ng-show="modalButtonDefault", ng-click="ok(modal.modalInput)") {{modalButtonDefaultText}}
+				button.btn.btn-primary(type='button', ng-show="modalButtonPrimary") {{modalButtonPrimaryText}}
+				button.btn.btn-danger(type='button', ng-show="modalButtonDanger") {{modalButtonDangerText}}
