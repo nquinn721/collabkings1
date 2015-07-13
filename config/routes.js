@@ -53,6 +53,8 @@ module.exports.routes = {
   // User Informatin Routes
   'GET /status' : 'User.status',
   'GET /joinroom/:room?' : 'User.joinRoom',
+  'GET /addfriend/:friend' : 'User.addFriendRoute',
+  'GET /removefriend/:friend' : 'User.removeFriendRoute',
 
   // Editor Routes
   'GET /editorupdate' : 'Editor.updateEditor',

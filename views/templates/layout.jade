@@ -1,14 +1,18 @@
 doctype
 html(ng-app='app') 
 	head 
-		link(rel="stylesheet", href="styles/importer.css")
+		link(rel="stylesheet", href="bower_components/bootstrap/dist/css/bootstrap.min.css")
 		link(rel="stylesheet", href="bower_components/fontawesome/css/font-awesome.min.css")
 		link(rel="stylesheet", href="css/codemirror/monokai.css")
+		link(rel="stylesheet", href="styles/importer.css")
 	body(ng-controller='main')
 		block content
 		script(src="bower_components/jquery/dist/jquery.min.js")
 		script(src="bower_components/angularjs/angular.min.js")
 		script(src="bower_components/moment/moment.js")
+		script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
+		script(src="js/dependencies/codemirror.js")
+		script(src="js/dependencies/sails.io.js")
 		- for(var i in sails.config.globals.jsFiles)
 			script(src="js/#{sails.config.globals.jsFiles[i]}")
 		script(src="dependencies/codemirror/mode/htmlmixed/htmlmixed.js")

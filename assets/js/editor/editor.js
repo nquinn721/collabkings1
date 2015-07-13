@@ -17,7 +17,7 @@ CK.directive('editor', function ($rootScope, $timeout) {
 			
 			// Create other person cursor
 			$('.CodeMirror-sizer').append($('<div>', {class : 'other-person-cursor'}));
-
+ 
 			editor.on('change', function (e, data) {
 				if(!fromSocket)
 					io.socket.get('/editorupdate', data);

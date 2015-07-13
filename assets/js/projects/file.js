@@ -2,6 +2,7 @@ CK.directive('file', function () {
 	var url;
 	return {   
 		restrict : 'A',
+		scope : true,
 		link : function ($scope, $element, $attr) {
 
            	$scope.contentUrl = 'templates/file.html';
@@ -19,6 +20,5 @@ CK.directive('file', function () {
 			}
 		},
 		template : '<div ng-include="contentUrl" include-replace></div>'
-		// templateUrl : 'templates/file.html'
 	}
 });
