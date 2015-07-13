@@ -7,4 +7,4 @@
 		table
 			tr(ng-repeat="friend in user.friends")
 				td {{friend}}
-				td: i.fa.fa-trash.pointer(ng-click="removeFriend")
+				td: i.fa.fa-trash.pointer(ng-click="removeFriend(friend)")
